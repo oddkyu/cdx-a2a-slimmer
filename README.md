@@ -6,6 +6,10 @@
 [![License](https://img.shields.io/badge/License-Commercial%20EULA-darkred.svg)](./EULA.md)
 [![Patent](https://img.shields.io/badge/Patent-Pending%20(KR%2010--2026--0172394)-gold.svg)](./EULA.md)
 
+<p align="center">
+  <img src="./assets/banner.jpg" alt="CDX A2A Slimmer Banner" width="100%">
+</p>
+
 > **"Cache-Preserving Zero-Loss Token Slimming, The New Standard for Multi-Agent AI"**  
 > Reduce your OpenAI, Anthropic, and open LLM multi-agent communication tokens by **20% ~ 31.55%** with **zero code refactoring** and **0.08ms ultra-low latency**.
 
@@ -61,6 +65,10 @@ response = client.chat.completions.create(
 ---
 
 ## 📊 Performance Benchmarks
+
+<p align="center">
+  <img src="./assets/architecture.jpg" alt="CDX Payload Architecture" width="100%">
+</p>
 
 | Metric | Raw Multi-Agent Traffic | With CDX A2A Slimmer | Improvement |
 | :--- | :---: | :---: | :---: |
