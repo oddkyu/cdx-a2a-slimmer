@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  cdx-a2a-sidecar:
+    image: cdxno1/cdx-a2a-sidecar:latest
+    container_name: cdx_a2a_sidecar
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - TARGET_UPSTREAM=https://api.openai.com
+    restart: unless-stopped
