@@ -138,9 +138,19 @@ print(f"Savings: {telemetry['reduction_percent']}% | Latency: {telemetry['latenc
 
 For **macOS (Apple Silicon M1/M2/M3/M4 & Intel)**, **Linux (Ubuntu/Debian/RHEL)**, and non-Python environments (Node.js, TypeScript, Go, Java, Rust), run the 100% binary-sealed zero-data-retention (ZDR) reverse proxy sidecar locally or in your Kubernetes cluster with **zero code changes**:
 
+### Step 1: Claim Free License Key (Instant, 10 Seconds)
+1. Sign up for free at **[https://cdxengine.com](https://cdxengine.com)** (No credit card required).
+2. Copy your free instant license key (`cdx_live_...`).
+   * 🎁 **All registered keys unlock the full 31.55% token reduction AND 100% KV-Cache canonical alignment** (unlocking 50% OpenAI / 90% Anthropic prompt caching discounts)!
+
+### Step 2: Run the Docker Sidecar
+
 ```bash
-docker run -d -p 8080:8080 \
+docker run -d \
+  --name cdx-a2a-sidecar \
+  -p 8080:8080 \
   -e TARGET_UPSTREAM="https://api.openai.com" \
+  -e CDX_LICENSE_KEY="cdx_live_YOUR_KEY_HERE" \
   cdxno1/cdx-a2a-sidecar:latest
 ```
 
@@ -149,7 +159,7 @@ Point any AI agent framework (OpenAI, Anthropic, LangChain, CrewAI, AutoGen) to 
 ```python
 from openai import OpenAI
 
-# Zero-configuration proxying: Automatic 30% AST slimming + 100% KV-cache retention
+# Zero-configuration proxying: Automatic 31.55% AST slimming + 100% KV-cache retention
 client = OpenAI(base_url="http://localhost:8080/v1")
 ```
 
@@ -217,7 +227,7 @@ All worldwide patents, copyrights, trade secrets, and machine binaries remain th
 ---
 
 ## 💎 Official Pricing Tiers
-* **Developer Free ($0 / mo):** 1 Local Machine, up to 5 concurrent sessions, 100,000 monthly slimming calls, basic AST schema pruning (~20% savings).
+* **Developer Free ($0 / mo):** 1 Local Machine, up to 5 concurrent sessions, 100,000 monthly slimming calls, full 31.55% reduction & 100% KV-Cache alignment with free registered key.
 * **Team ($499 / mo, $399/mo billed annually):** Up to 5 Node (Pod) Clusters, 1,000,000 monthly slimming calls, tool & conversation token pruning (~20%~30% savings), RFC 8259 deterministic canonicalizer, Prometheus telemetry, 24h technical support.
 * **Business ($1,499 / mo, $1,199/mo billed annually):** Up to 20 Node (Pod) Clusters, 5,000,000 monthly slimming calls, high-concurrency threading engine, Kubernetes autoscaling & multi-VPC support, 99.9% availability guarantee (4h SLA).
 * **Enterprise Sovereign (Custom ARR / Dedicated SLA):** Dedicated VPC & 100% Air-Gapped offline deployment, custom large-scale nodes (50~100+ Pods or unlimited), 15M+ unlimited monthly volume, PII zero-trust vault, 99.99% availability guarantee & 15-min priority engineer hotline.

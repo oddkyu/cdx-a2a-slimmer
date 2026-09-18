@@ -9,4 +9,5 @@ services:
     environment:
       - PORT=8080
       - TARGET_UPSTREAM=https://api.openai.com
+      - CDX_LICENSE_KEY=${CDX_LICENSE_KEY:-} # Claim your free key at https://cdxengine.com
     restart: unless-stopped
