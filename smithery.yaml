@@ -1,0 +1,36 @@
+# ╔══════════════════════════════════════════════════════════════════════════════════╗
+# ║   SMITHERY.YAML — Model Context Protocol (MCP) Registry Configuration             ║
+# ║   CDX MCP Proxy (Cantor Labs / https://cdxengine.com)                            ║
+# ║   Lossless 30%~50% Schema Pruning & Prompt Cache Preservation for MCP Agents      ║
+# ╚══════════════════════════════════════════════════════════════════════════════════╝
+
+startCommand:
+  type: stdio
+
+configSchema:
+  type: object
+  required:
+    - upstreamCommand
+  properties:
+    upstreamCommand:
+      type: string
+      description: "The full execution command of the upstream MCP server to optimize (e.g. 'npx -y @modelcontextprotocol/server-memory' or 'uvx mcp-server-sqlite --db-path test.db')"
+    logTelemetry:
+      type: boolean
+      default: true
+      description: "Whether to print non-corrupting stderr telemetry logs on token savings"
+
+commandFunction: |
+  (config) => {
+    const rawCmd = config.upstreamCommand || "npx -y @modelcontextprotocol/server-memory";
+    const parts = rawCmd.trim().split(/\s+/);
+    return {
+      command: "python",
+      args: ["-m", "cdx_a2a_slimmer", "mcp-proxy", "--", ...parts],
+      env: {}
+    };
+  }
+
+exampleConfig:
+  upstreamCommand: "npx -y @modelcontextprotocol/server-memory"
+  logTelemetry: true
