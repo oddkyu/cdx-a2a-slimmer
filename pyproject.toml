@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cdx-a2a-slimmer"
+version = "1.0.0"
+description = "Deterministic 30% zero-loss token slimmer middleware for multi-agent LLM systems."
+readme = "README.md"
+authors = [{ name = "Oh-dong-kyu", email = "support@cdxengine.com" }]
+license = "Apache-2.0"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+keywords = ["llm", "token-reducer", "mcp", "model-context-protocol", "crewai", "autogen", "langchain", "prompt-cache", "openai", "anthropic"]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.urls]
+Homepage = "https://cdxengine.com"
+Documentation = "https://cdxengine.com/docs"
+Repository = "https://github.com/oddkyu/cdx-a2a-slimmer"
+
+[tool.setuptools.packages.find]
+where = ["src"]
