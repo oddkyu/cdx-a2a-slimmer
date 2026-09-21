@@ -198,11 +198,34 @@ Add the `-m cdx_a2a_slimmer mcp-proxy --` prefix before your original MCP comman
 }
 ```
 
-### Smithery.ai & Glama Discovery
-CDX MCP Proxy is fully compatible with Smithery.ai via [`smithery.yaml`](smithery.yaml):
+### ⚡ Smithery.ai 1-Click Automated Installation
+CDX MCP Proxy is officially registered on [Smithery.ai](https://smithery.ai/server/earthtbook/cdx-mcp-proxy):
+
 ```bash
-npx -y @smithery/cli install @oddkyu/cdx-a2a-slimmer --client claude
+# For Claude Desktop
+npx -y @smithery/cli install earthtbook/cdx-mcp-proxy --client claude
+
+# For Cursor
+npx -y @smithery/cli install earthtbook/cdx-mcp-proxy --client cursor
 ```
+
+### 📋 Zero-Terminal 1-Click Configuration (Direct Copy-Paste)
+If you prefer not to use the terminal, simply paste the following into your `claude_desktop_config.json` (Windows: `%APPDATA%\Claude\claude_desktop_config.json` | macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`):
+
+```json
+{
+  "mcpServers": {
+    "cdx-mcp-proxy": {
+      "command": "python",
+      "args": [
+        "-m", "cdx_a2a_slimmer", "mcp-proxy", "--",
+        "npx", "-y", "@modelcontextprotocol/server-memory"
+      ]
+    }
+  }
+}
+```
+*(Replace the wrapped command with any MCP tool you use, such as filesystem, postgres, or sqlite, to immediately unlock 30%~50% tool schema compression!)*
 
 ---
 
